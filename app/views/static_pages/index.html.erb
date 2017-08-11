@@ -1,0 +1,11 @@
+<h1>Welcome to Thomas's Collection of the best Aeropress Coffee Recipes from around the web</h1>
+
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="entry col-xl-12">
+      <h2><%= recipe.title %></h2>
+      <p><%= recipe.description %></p>
+      <div><%= raw recipe.video.embed_code %></div>
+    </div>
+  <% end %>
+</div>

@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20170811133231) do
   create_table "videos", force: :cascade do |t|
     t.string   "url"
     t.text     "embed_code"
-    t.integer  "recipes_id"
+    t.integer  "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipes_id"], name: "index_videos_on_recipes_id"
+    t.index ["recipe_id"], name: "index_videos_on_recipe_id"
   end
 
 end
