@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title %>
-</p>
+<h2>
+ <a href="https://www.youtube.com/watch?v=<%= @recipe.youtube_id %>"> <%= @recipe.title %></a> 
+</h2>
+
+ <div class="video">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @recipe.youtube_id %>" frameborder="0" allowfullscreen></iframe>
+ </div>
 
 <p>
-  <strong>Description:</strong>
   <%= @recipe.description %>
 </p>
 

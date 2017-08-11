@@ -10,22 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170811133231) do
+ActiveRecord::Schema.define(version: 20170811133053) do
 
   create_table "recipes", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
+    t.text     "youtube_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "videos", force: :cascade do |t|
-    t.string   "url"
-    t.text     "embed_code"
-    t.integer  "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["recipe_id"], name: "index_videos_on_recipe_id"
   end
 
 end
