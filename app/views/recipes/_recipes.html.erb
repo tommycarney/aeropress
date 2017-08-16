@@ -1,0 +1,11 @@
+<% @recipes.each_slice(3) do |three_recipes| %>
+<div class="row">
+<% three_recipes.each do |recipe| %>
+   <div class="entry col-xl-4">
+     <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
+     <iframe src="https://www.youtube.com/embed/<%= recipe.youtube_id %>" frameborder="0" allowfullscreen></iframe>
+     <p><%= recipe.description %></p>
+   </div>
+<% end %>
+</div>
+<% end %>

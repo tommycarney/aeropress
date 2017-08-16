@@ -1,11 +1,7 @@
-<h1>Welcome to Thomas's Collection of the best Aeropress Coffee Recipes from around the web</h1>
+<h1>Find the Perfect Aeropress Recipe</h1>
 
-<div class="row">
-  <% @recipes.each do |recipe| %>
-    <div class="entry col-xl-12">
-      <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
-      <p><%= recipe.description %></p>
-      <div> <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= recipe.youtube_id %>" frameborder="0" allowfullscreen></iframe></div>
+<%= button_to "Show All", index_path, method: :get, remote: true %>
+<%= button_to "Show One", index_path(amount:1), method: :get, remote: true %>
+    <div id="content">
+      <%= render 'recipes/recipes', recipes: @recipes %>
     </div>
-  <% end %>
-</div>
