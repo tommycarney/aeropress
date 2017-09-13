@@ -2,9 +2,9 @@
 <div class="row">
 <% three_recipes.each do |recipe| %>
    <div class="entry col-xl-4">
-     <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
+     <h2><%= link_to truncate(recipe.title, length:50), recipe_path(recipe) %></h2>
      <iframe src="https://www.youtube.com/embed/<%= recipe.youtube_id %>" frameborder="0" allowfullscreen></iframe>
-     <p><%= recipe.description %></p>
+     <p><%= truncate(recipe.description, length: 200) %></p>
    </div>
 <% end %>
 </div>

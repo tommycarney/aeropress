@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap', '~> 4.0.0.beta'
+gem 'acts-as-taggable-on', '~> 4.0'
+
 
 
 group :development, :test do

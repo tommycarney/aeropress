@@ -12,11 +12,24 @@ recipe1 = Recipe.create!(title: "How to Brew Coffee in an AeroPress",
                      description: "Learn how to brew your best in an AeroPress when you're on the road. This is a real time video so you can let us be your guide and brew alongside our best baristas. Happy brewing!",
                      youtube_id:"pmjPjZZRhNQ")
 
+recipe1.set_tag_list_on(:beverages, "Americano")
+recipe1.set_tag_list_on(:techniques, "Traditional")
+recipe1.save
+
+
 recipe2 = Recipe.create!(title: "Aeropress Perfection",
                      description: "This recipe will yield a very concentrated shot of coffee, good for a long mac or strong latte.",
                      youtube_id: "PMqjk2jZ4AE")
+
+ recipe2.set_tag_list_on(:beverages, "Long Macchiato, Latte")
+ recipe2.set_tag_list_on(:techniques, "Inverted")
+ recipe2.save
 
 
 recipe3 = Recipe.create!(title: "How to make the best coffee with the Aeropress - Inverted Method",
                      description: "This is a method of brewing aeropress when you're using the inverted method method by Dave Cheung.",
                      youtube_id: "kQ8wvUKa35E")
+
+recipe3.set_tag_list_on(:beverages, "Americano")
+recipe3.set_tag_list_on(:techniques, "Inverted")
+recipe3.save
