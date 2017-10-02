@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Recipe do
-  let :recipe { FactoryGirl.create(:recipe)}
+  let :recipe { FactoryGirl.build_stubbed(:recipe)}
   let :americano { FactoryGirl.create(:recipe, :with_beverage_tag) }
   let :inverted { FactoryGirl.create(:recipe, :with_technique_tag) }
 
@@ -21,7 +21,7 @@ RSpec.describe Recipe do
 
   it "can be found via the beverage tag once saved to database " do
     americano.save
-    expect(Recipe.tagged_with("Americano").to_a).to eq([americano])
+    expect(Recipe.tagged_with("Americano").to_a).to include(americano)
   end
 
   it "can be found via the technique tag once saved to database " do

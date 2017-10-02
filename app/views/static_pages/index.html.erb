@@ -1,7 +1,0 @@
-<h1>Find the Perfect Aeropress Recipe</h1>
-
-<%= button_to "Show All", index_path, method: :get, remote: true %>
-<%= button_to "Show One", index_path(amount:1), method: :get, remote: true %>
-    <div id="content">
-      <%= render 'recipes/recipes', recipes: @recipes %>
-    </div>
