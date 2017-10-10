@@ -18,6 +18,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.3'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'acts-as-taggable-on', '~> 4.0'
+gem "administrate"
+gem "bourbon"
 
 
 
