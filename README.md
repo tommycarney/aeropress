@@ -1,24 +1,14 @@
-# README
+# The Aeropress Site
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features:
 
-Things you may want to cover:
+- a user can log in a submit a recipe idea consisting of a title, description and youtube id of the video
+- an admin can edit all recipes and users and approve recipe ideas
 
-* Ruby version
 
-* System dependencies
+## Gems
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- devise for users
+- Single table inheritance for the admin users
+- administrate or rails admin for the admin section
+- rspec, capybara for tests
