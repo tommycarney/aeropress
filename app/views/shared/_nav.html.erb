@@ -1,19 +1,21 @@
-<div class="navbar navbar-expand-md">
-  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">Aeropress-Coffee.com: Find the Perfect Aeropress Recipe</a>
-  <%= link_to "Add a Recipe", new_recipe_path, class: "nav-link", id: "new_recipe_from_nav" %>
-  <% if !user_signed_in? %>
-    <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary" %>
-  <% end %>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <%= form_tag '', method: :get, remote: true do %>
-      <%= select_tag "recipe[beverage]", options_for_select(beverage_names, "name") %>
-      <%= select_tag "recipe[technique]", options_for_select(technique_names, "name") %>
-      <%= submit_tag 'Filter' %>
-    <% end %>
+<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+  <div class="container">
+    <%= link_to "Aeropress Coffe Recipes", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <% if user_signed_in? %>
+              <%= link_to "Add a Recipe", new_recipe_path, class: "nav-link", id: "new_recipe_from_nav" %>
+          <% end %>
+        </li>
+      </ul>
+      <% if user_signed_in? %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn navbar-btn ml-2 text-white btn-secondary" %>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path, class: "btn navbar-btn ml-2 text-white btn-secondary" %>
+      <% end %>
+    </div>
   </div>
 </nav>
-</div>
