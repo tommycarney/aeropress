@@ -20,8 +20,8 @@ RSpec.describe "navigating" do
     end
 
     it "has a list of recipes" do
-      recipe1 = FactoryGirl.build_stubbed(:recipe)
-      recipe2 = FactoryGirl.build_stubbed(:recipe)
+      recipe1 = FactoryGirl.create(:recipe)
+      recipe2 = FactoryGirl.create(:recipe)
       visit root_path
       expect(page).to have_content(/A title|A description/)
     end

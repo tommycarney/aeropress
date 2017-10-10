@@ -10,6 +10,8 @@ Recipe.delete_all
 
 user = User.create(email: "test@test.com", password: "asdfasdf", password_confirmation: "asdfasdf")
 
+admin = AdminUser.create(email: "admin@test.com", password: "asdfasdf", password_confirmation: "asdfasdf", type: "AdminUser")
+
 recipe1 = Recipe.create!(title: "How to Brew Coffee in an AeroPress",
                      description: "Learn how to brew your best in an AeroPress when you're on the road. This is a real time video so you can let us be your guide and brew alongside our best baristas. Happy brewing!",
                      youtube_id:"pmjPjZZRhNQ",
