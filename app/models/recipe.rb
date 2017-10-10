@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
   scope :beverage, -> (beverage){ tagged_with(beverage) }
   scope :technique, -> (technique) { tagged_with(technique) }
 
+
   def self.beverage_names
     Recipe.beverage_counts.map{|beverage| beverage.name }
   end

@@ -5,11 +5,23 @@ RSpec.describe Recipe do
   let :americano { FactoryGirl.create(:recipe, :with_beverage_tag) }
   let :inverted { FactoryGirl.create(:recipe, :with_technique_tag) }
 
+  describe "returns a list" do
+    it "with beverage types" do
+      recipe = americano
+      expect(Recipe.beverage_names).to include("Americano")
+    end
+
+    it "with technique types" do
+      recipe = inverted
+      expect(Recipe.technique_names).to include("Inverted")
+    end
+  end
+
   subject { recipe }
 
-  it {should respond_to(:title) }
-  it {should respond_to(:description) }
-  it {should respond_to(:youtube_id) }
+  it {is_expected.to respond_to(:title) }
+  it {is_expected.to respond_to(:description) }
+  it {is_expected.to respond_to(:youtube_id) }
 
   it "has a beverage tag" do
    expect(americano.beverages.map(&:name)).to eq(["Americano"])
@@ -28,5 +40,4 @@ RSpec.describe Recipe do
     inverted.save
     expect(Recipe.tagged_with("Inverted")).to include(inverted)
   end
-
 end
