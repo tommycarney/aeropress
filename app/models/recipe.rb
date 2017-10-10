@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+  belongs_to :user
   acts_as_taggable
   acts_as_taggable_on :beverages, :techniques
   scope :beverage, -> (beverage){ tagged_with(beverage) }

@@ -21,7 +21,12 @@
     <%= f.text_area :description %>
   </div>
 
+  <div class="field">
+    <%= f.label :youtube_id %>
+    <%= f.text_field :youtube_id %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit Recipe" %>
   </div>
 <% end %>

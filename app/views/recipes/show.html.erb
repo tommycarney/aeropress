@@ -12,5 +12,8 @@
   <%= @recipe.description %>
 </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<% if user_signed_in? %>
+  <%= link_to 'Edit this Recipe', edit_recipe_path(@recipe), id: "edit_#{@recipe.id}" %> |
+  <%= link_to 'Back', recipes_path %> |
+  <%= link_to "Delete this Recipe", recipe_path(@recipe), method: :delete, data: {confirm: "Are you sure you want to delete this recipe?"}, id: "delete_recipe_#{@recipe.id}" %>
+<% end %>

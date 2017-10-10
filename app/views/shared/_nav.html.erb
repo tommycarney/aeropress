@@ -1,0 +1,19 @@
+<div class="navbar navbar-expand-md">
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Aeropress-Coffee.com: Find the Perfect Aeropress Recipe</a>
+  <%= link_to "Add a Recipe", new_recipe_path, class: "nav-link", id: "new_recipe_from_nav" %>
+  <% if !user_signed_in? %>
+    <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary" %>
+  <% end %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%= form_tag '', method: :get, remote: true do %>
+      <%= select_tag "recipe[beverage]", options_for_select(beverage_names, "name") %>
+      <%= select_tag "recipe[technique]", options_for_select(technique_names, "name") %>
+      <%= submit_tag 'Filter' %>
+    <% end %>
+  </div>
+</nav>
+</div>
