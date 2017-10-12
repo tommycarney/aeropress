@@ -20,9 +20,7 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem "administrate"
 gem "bourbon"
-
-
-
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug', platform: :mri

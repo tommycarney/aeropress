@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    authorize @recipe
   end
 
   def create
@@ -40,6 +41,7 @@ class RecipesController < ApplicationController
   end
 
   def update
+    authorize @recipe
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
@@ -51,6 +53,7 @@ class RecipesController < ApplicationController
     end
   end
   def destroy
+    authorize @recipe
     @recipe.destroy
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
