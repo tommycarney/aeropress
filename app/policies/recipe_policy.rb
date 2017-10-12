@@ -1,6 +1,10 @@
 class RecipePolicy < ApplicationPolicy
 
-  def edit?
+  def update?
+    admins.include?(user.try(:type))
+  end
+
+  def destroy?
     admins.include?(user.try(:type))
   end
 end

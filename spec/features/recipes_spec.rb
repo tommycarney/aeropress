@@ -42,15 +42,6 @@ RSpec.describe "navigating" do
     end
   end
 
-  describe "delete" do
-    it "can be deleted" do
-      @recipe = FactoryGirl.create(:recipe)
-      visit recipe_path(@recipe)
-      click_link("delete_recipe_#{@recipe.id}")
-      expect(page.status_code).to eq(200)
-    end
-  end
-
   describe "creation" do
     before do
       visit new_recipe_path
@@ -77,12 +68,15 @@ RSpec.describe "navigating" do
     end
   end
 
-  describe "edit" do
+  describe "editing recipes" do
     before do
       @recipe = FactoryGirl.create(:recipe)
+      logout(@user)
+      @admin = FactoryGirl.create(:admin_user)
+      login_as(@admin, scope: :user)
     end
 
-    it "can be reached by clicking edit on the show page" do
+    it "can be reached by an admin by clicking edit on the show page" do
       visit recipe_path(@recipe)
 
       click_link("edit_#{@recipe.id}")
@@ -90,15 +84,31 @@ RSpec.describe "navigating" do
       expect(current_path).to eq(edit_recipe_path(@recipe.id))
     end
 
-    it "can be edited" do
+    it "can be edited by an admin" do
       visit edit_recipe_path(@recipe)
-
       fill_in "recipe[title]", with: "An edited title"
       fill_in "recipe[description]", with: "An edited description"
       fill_in "recipe[youtube_id]", with: "AYTIDWITHNW"
 
       click_on "Submit Recipe"
       expect(page).to have_content("An edited title")
+    end
+  end
+
+  describe "delete" do
+    it "can't be deleted by a normal user" do
+      @recipe = FactoryGirl.create(:recipe)
+      visit recipe_path(@recipe)
+      expect{ click_link("delete_recipe_#{@recipe.id}")}.to change(Recipe, :count).by(0)
+    end
+
+    it "can be deleted by an admin user" do
+      @recipe = FactoryGirl.create(:recipe)
+      logout(@user)
+      @admin = FactoryGirl.create(:admin_user)
+      login_as(@admin, scope: :user)
+      visit recipe_path(@recipe)
+      expect{ click_link("delete_recipe_#{@recipe.id}")}.to change(Recipe, :count).by(-1)
     end
   end
 end
