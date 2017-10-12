@@ -20,11 +20,4 @@ RSpec.describe RecipesController, type: :controller do
       expect(assigns(:recipes)).to_not include(inverted_coffee)
     end
   end
-  describe "creating a new recipe" do
-    it "via a post to the create method " do
-      expect {
-        process :create, method: :post, params: { recipe: FactoryGirl.attributes_for(:recipe) }
-      }.to change { Recipe.count }
-    end
-  end
 end
