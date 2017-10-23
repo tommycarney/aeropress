@@ -1,5 +1,4 @@
 <h1>Find the Perfect Aeropress Recipe</h1>
 
-<div id="content">
-  <%= render 'recipes/recipes', recipes: @recipes %>
-</div>
+<%= render 'recipe_filter' %>
+<%= render 'recipes/recipes', recipes: @recipes %>
