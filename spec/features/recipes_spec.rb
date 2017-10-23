@@ -31,8 +31,7 @@ RSpec.describe "navigating" do
     it "it has a nav link to the new recipe form" do
       visit root_path
       click_link("new_recipe_from_nav")
-      expect(page.status_code).to eq(200)
-      expect(page).to have_content("New Recipe")
+      expect(current_path).to eq(new_recipe_path)
     end
 
     it "cannot be reached if the user is signed out" do
