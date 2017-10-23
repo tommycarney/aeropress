@@ -67,7 +67,7 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:title, :description,:beverage, :technique)
+      params.require(:recipe).permit(:title, :description, :youtube_id, :beverage, :technique, :beverage_list, :technique_list)
     end
 
     def filtering_params(params)
