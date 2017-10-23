@@ -54,8 +54,12 @@ RSpec.describe "navigating" do
       fill_in "recipe[title]", with: "A great test title"
       fill_in "recipe[description]", with: "A description"
       fill_in "recipe[youtube_id]", with: "PMqjk2jZ4AE"
+      fill_in "recipe[beverage_list]", with: "weird ass beverage"
+      fill_in "recipe[technique_list]", with: "unusual technique"
       click_on "Submit Recipe"
       expect(page).to have_content("A great test title")
+      expect(Recipe.last.beverage_list).to eq(["weird ass beverage"])
+      expect(Recipe.last.technique_list).to eq(["unusual technique"])
     end
 
     it "can be created from the new form page" do
