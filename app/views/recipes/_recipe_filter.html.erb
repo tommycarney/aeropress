@@ -1,15 +1,15 @@
 <div class="row">
   <%= form_tag '', method: :get, remote: true, class: "" do %>
     <div class="input-group">
-      <%= label_tag(:beverage, "Select a Beverage", class: "col-lg-4 control-label") %>
-      <%= select_tag "recipe[beverage]", options_for_select(beverage_names, "name"), class: "form-control" %>
+      <%= label_tag(:beverage, raw("Beverage &#x25bc; "), class: "control-label") %>
+      <%= select_tag "recipe[beverage]", options_for_select(beverage_names, "name"), class: "selectpicker", onchange: "$(this.form).submit()" %>
     </div>
 
     <div class="input-group">
-      <%= label_tag(:technique, "Select a Technique", class: "col-lg-4 control-label") %>
-      <%= select_tag "recipe[technique]", options_for_select(technique_names, "name"), class: "form-control" %>
+      <%= label_tag(:technique, "Select a Technique", class: "control-label") %>
+      <%= select_tag "recipe[technique]", options_for_select(technique_names, "name"), class: "selectpicker", onchange: "$(this.form).submit()" %>
     </div>
-    <%= submit_tag 'Search', class: "btn btn-primary" %>
+    <%= submit_tag 'Search', class: "btn btn-primary", data: {disable_with: "Finding..."} %>
   <% end %>
 
 </div>
