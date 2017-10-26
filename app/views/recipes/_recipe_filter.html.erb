@@ -1,15 +1,10 @@
-<div class="row">
-  <%= form_tag '', method: :get, remote: true, class: "" do %>
-    <div class="input-group">
-      <%= label_tag(:beverage, raw("Beverage &#x25bc; "), class: "control-label") %>
-      <%= select_tag "recipe[beverage]", options_for_select(beverage_names, "name"), class: "selectpicker", onchange: "$(this.form).submit()" %>
+<div class="filter-border">
+  <%= form_tag '', method: :get, remote: true, class: "form-line" do %>
+   <div class="row">
+     <div class="form-group col-centered">
+         <%= select_tag "recipe[beverage]", options_for_select(beverage_names, "name"), include_blank: raw("Beverage &#x25bc; "), class: "selectpicker", onchange: "$(this.form).submit()" %>
+         <%= select_tag "recipe[technique]", options_for_select(technique_names, "name"), include_blank: raw("Technique &#x25bc; "), class: "selectpicker", onchange: "$(this.form).submit()" %>
     </div>
-
-    <div class="input-group">
-      <%= label_tag(:technique, "Select a Technique", class: "control-label") %>
-      <%= select_tag "recipe[technique]", options_for_select(technique_names, "name"), class: "selectpicker", onchange: "$(this.form).submit()" %>
-    </div>
-    <%= submit_tag 'Search', class: "btn btn-primary", data: {disable_with: "Finding..."} %>
+   </div>
   <% end %>
-
 </div>

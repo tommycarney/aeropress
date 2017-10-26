@@ -1,3 +1,42 @@
 // Place all the styles related to the recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+select {
+        /*for firefox*/
+        -moz-appearance: none;
+        /*for chrome*/
+        -webkit-appearance:none!important;
+        border: none;
+      }
+
+select:hover {
+        /*for firefox*/
+        -moz-appearance: none;
+        /*for chrome*/
+        -webkit-appearance:none!important;
+        border: none;
+      }
+
+/*for IE10*/
+select::-ms-expand {
+    display: none;
+}
+
+
+.filter-border {
+  border-top: 4px solid #BB4430;
+  border-bottom: 4px solid #BB4430;
+  width: 80%;
+  margin: auto;
+}
+
+.filter-border select {
+  padding-top: 1em;
+  background-color: white;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
