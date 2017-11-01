@@ -10,7 +10,60 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+@import "bootstrap-custom-variables.scss";
 @import "bootstrap";
+
+
+
+
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;  /* 50% of your logo width */
+    display: block;
+}
+
+select {
+        /*for firefox*/
+        -moz-appearance: none;
+        /*for chrome*/
+        -webkit-appearance:none!important;
+        border: none;
+      }
+
+select:hover {
+        /*for firefox*/
+        -moz-appearance: none;
+        /*for chrome*/
+        -webkit-appearance:none!important;
+        border: none;
+      }
+
+/*for IE10*/
+select::-ms-expand {
+    display: none;
+}
+
+
+.filter-border {
+  border-top: 4px solid #BB4430;
+  border-bottom: 4px solid #BB4430;
+  width: 80%;
+  margin-top: 2em;
+  margin-bottom: 5em;
+  margin: 2em auto;
+
+}
+
+.filter-border select {
+  padding-top: 1em;
+  background-color: white;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
